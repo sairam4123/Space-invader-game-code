@@ -76,8 +76,7 @@ def collide(alienx, alieny, bulletx, bullety):
 
 
 # Loop the screen
-run = True
-while run:
+while True:
     screen.fill((0, 0, 0))
     screen.blit(bg, (0, 0))
 
@@ -121,7 +120,7 @@ while run:
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            break
 
     # Arrow keys functions
     keys = pygame.key.get_pressed()
@@ -139,6 +138,7 @@ while run:
 
 
     
-    enemy()
+    for i in range(10):
+        enemy()
     player()
     pygame.display.update()
