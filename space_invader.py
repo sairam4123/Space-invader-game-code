@@ -8,6 +8,9 @@ import math
 # Initialize our screen
 pygame.init()
 
+game_screen_size_x, game_screen_size_y = pygame.display.get_surface().get_size()
+
+
 #creating screen
 x = 1000
 y = 600
@@ -31,7 +34,7 @@ rockety = 480
 
 #loading alien
 alien = pygame.image.load('alien.png')
-alienx = random.randint(64, 936)
+alienx = random.randint(64, game_screen_size_x)
 alieny = random.randint(64, 150)
 alienx_movement = 2
 alieny_movement = 40
@@ -85,15 +88,15 @@ while run:
     # rocket movement
     if rocketx <= 0:
         rocketx = 0
-    elif rocketx >= 968:
-        rocketx = 968
+    elif rocketx >= game_screen_size_x:
+        rocketx = game_screen_size_x
 
     #alien movement
     alienx += alienx_movement
     if alienx <= 0:
         alienx_movement =  2
         alieny += alieny_movement
-    elif alienx >= 936:
+    elif alienx >= game_screen_size_x:
         alienx_movement = -2
         alieny += alieny_movement
 
